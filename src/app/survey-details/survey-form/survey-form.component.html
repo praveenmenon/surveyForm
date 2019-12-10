@@ -1,0 +1,160 @@
+<!-- Html for submit form -->
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="SurveyId" [value]="service.formData.SurveyId">
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-circle" [class.green-icon]="FirstName.valid" [class.red-icon]="FirstName.invalid && FirstName.touched"></i>
+        </div>
+      </div>
+      <input name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control"
+        placeholder="First Name" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-circle" [class.green-icon]="LastName.valid" [class.red-icon]="LastName.invalid && LastName.touched"></i>
+        </div>
+      </div>
+      <input name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName" class="form-control"
+        placeholder="last Name" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="far fa-address-book" [class.green-icon]="Street.valid" [class.red-icon]="Street.invalid && Street.touched"></i>
+        </div>
+      </div>
+      <input name="Street" #Street="ngModel" [(ngModel)]="service.formData.Street" class="form-control"
+        placeholder="Street Address" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-city" [class.green-icon]="City.valid" [class.red-icon]="City.invalid && City.touched"></i>
+        </div>
+      </div>
+      <input name="City" #City="ngModel" [(ngModel)]="service.formData.City" class="form-control"
+        placeholder="City" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+      </div>
+      <input name="State" #State="ngModel" [(ngModel)]="service.formData.State" class="form-control"
+        placeholder="State" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+      </div>
+      <input name="Zip" #Zip="ngModel" [(ngModel)]="service.formData.Zip" class="form-control"
+        placeholder="Zip" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-mobile"  [class.green-icon]="MobileNumber.valid" [class.red-icon]="MobileNumber.invalid && MobileNumber.touched"></i>
+        </div>
+      </div>
+      <input name="MobileNumber" #MobileNumber="ngModel" [(ngModel)]="service.formData.MobileNumber"
+      class="form-control" placeholder="Mobile Number" required maxlength="10" minlength="10">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-at"  [class.green-icon]="Email.valid" [class.red-icon]="Email.invalid && Email.touched"></i>
+        </div>
+      </div>
+      <input name="Email" type="email" #Email="ngModel" [(ngModel)]="service.formData.Email"
+      class="form-control" placeholder="Email" required>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-7">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-calendar-alt"  [class.green-icon]="SurveyDate.valid" [class.red-icon]="SurveyDate.invalid && SurveyDate.touched"></i>
+          </div>
+        </div>
+        <input name="SurveyDate" type="date" #SurveyDate="ngModel" [(ngModel)]="service.formData.SurveyDate" class="form-control"
+          placeholder="Survey Date MM/DD/YY">
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <label>How likely would you recomend this University to others</label>
+  </div>
+  <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="far fa-heart"></i>
+          </div>
+        </div>
+        <select class="form-control" name="Recomendation" required [(ngModel)]="service.formData.Recomendation">
+          <option></option>
+          <option>Very Likely</option>
+          <option>Likely</option>
+          <option>Unlikely</option>
+        </select>
+      </div>
+  </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <label>What did you like most about the campus</label>
+        <div>
+          <input type="checkbox" name="Student" [(ngModel)]="service.formData.LikeStudent" /> Student
+          <input type="checkbox" name="Location" [(ngModel)]="service.formData.LikeLocation" /> Location
+          <input type="checkbox" name="Campus" [(ngModel)]="service.formData.LikeCampus" /> Campus
+          <input type="checkbox" name="Atmosphere" [(ngModel)]="service.formData.LikeAtmosphere" /> Atmosphere
+        </div>
+        <div>
+          <input type="checkbox" name="DormRooms" [(ngModel)]="service.formData.LikeDormRooms" /> Dorm rooms
+          <input type="checkbox" name="Sports" [(ngModel)]="service.formData.LikeSports" /> Sports
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <label>How did you become interested in this University</label>
+        <div>
+          <input type="radio" value = "Friends" name="UniversityInterest" [(ngModel)]="service.formData.Radio"> Friends
+          <input type="radio" value = "Television" name="UniversityInterest" [(ngModel)]="service.formData.Radio"> Television
+          <input type="radio" value = "Internet" name="UniversityInterest" [(ngModel)]="service.formData.Radio"> Internet
+          <input type="radio" value = "Other" name="UniversityInterest" [(ngModel)]="service.formData.Radio"> Other
+        </div>
+      </div>
+    </div>
+
+  <div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-database"></i> Submit</button>
+    <button class="btn btn-secondary btn-lg btn-block" type="reset" ng-click="cancelEdit()">Cancel</button>
+  </div>
+</form>
